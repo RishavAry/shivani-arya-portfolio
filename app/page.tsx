@@ -1,6 +1,9 @@
+import { SiteHeader } from "@/components/navigation/site-header";
+
 export default function HomePage() {
   return (
-    <main className="portfolio-shell">
+    <main id="home" className="portfolio-shell">
+      <SiteHeader />
       <header className="portfolio-intro">
         <p className="portfolio-eyebrow">A woman in many frames</p>
         <h1>Shivani Arya</h1>
