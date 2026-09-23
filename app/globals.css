@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ivory: #f3efe7;
+  --color-olive: #26301a;
+  --color-wine: #9b0047;
+  --color-ink: #11110f;
+  --color-gold: #b8a06a;
+  --background: var(--color-ivory);
+  --foreground: var(--color-ink);
+  --font-display: "Cormorant Garamond", "Bodoni MT", "Playfair Display", Georgia, serif;
+  --font-interface: Inter, Geist, Manrope, Arial, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ivory: var(--color-ivory);
+  --color-olive: var(--color-olive);
+  --color-wine: var(--color-wine);
+  --color-ink: var(--color-ink);
+  --color-gold: var(--color-gold);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-interface);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-interface);
+}
+
+.portfolio-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(3rem, 10vh, 8rem);
+  padding: clamp(1.5rem, 6vw, 6rem);
+}
+
+.portfolio-intro {
+  max-width: 100%;
+}
+
+.portfolio-eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-olive);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.portfolio-intro h1 {
+  max-width: 100%;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 11vw, 9rem);
+  font-weight: 400;
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-placeholder {
+  align-self: flex-end;
+  max-width: 28rem;
+  color: var(--color-olive);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.portfolio-placeholder p {
+  margin: 0;
 }
