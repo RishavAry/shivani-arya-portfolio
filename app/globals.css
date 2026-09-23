@@ -32,18 +32,15 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-olive);
+  color: var(--color-ivory);
   font-family: var(--font-interface);
 }
 
-.portfolio-shell {
-  display: flex;
+.site-main {
+  position: relative;
   min-height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(3rem, 10vh, 8rem);
-  padding: clamp(1.5rem, 6vw, 6rem);
+  min-height: 100svh;
 }
 
 .site-header,
@@ -55,14 +52,18 @@ body {
 }
 
 .site-header {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  left: 0;
   min-height: 2.75rem;
+  padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1.25rem, 6vw, 6rem);
 }
 
 .site-wordmark,
 .menu-overlay-wordmark {
-  color: var(--color-ink);
+  color: var(--color-ivory);
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.2vw, 2rem);
   line-height: 1;
@@ -87,7 +88,7 @@ body {
 }
 
 .menu-control-mark {
-  color: var(--color-wine);
+  color: var(--color-gold);
   font-family: var(--font-interface);
   font-size: 1.25rem;
   line-height: 1;
@@ -172,43 +173,213 @@ body {
   line-height: 1.5;
 }
 
-.portfolio-intro {
-  max-width: 100%;
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--color-olive);
+  color: var(--color-ivory);
 }
 
-.portfolio-eyebrow {
-  margin: 0 0 0.75rem;
-  color: var(--color-olive);
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.hero-content {
+  display: grid;
+  width: min(100%, 112rem);
+  min-height: 100vh;
+  min-height: 100svh;
+  grid-template-columns: minmax(0, 1.12fr) minmax(17rem, 0.88fr);
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(7rem, 15vh, 11rem) clamp(1.5rem, 7vw, 7rem)
+    clamp(2rem, 5vh, 4rem);
 }
 
-.portfolio-intro h1 {
-  max-width: 100%;
+.hero-copy {
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 54rem;
+  padding-block: 1rem;
+}
+
+.hero-meta {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 11vw, 9rem);
-  font-weight: 400;
-  line-height: 0.95;
-  overflow-wrap: anywhere;
-}
-
-.portfolio-placeholder {
-  align-self: flex-end;
-  max-width: 28rem;
-  color: var(--color-olive);
-  font-size: 0.875rem;
+  margin-bottom: clamp(1rem, 3.2vh, 2.5rem);
+  color: var(--color-gold);
+  font-size: clamp(0.65rem, 0.85vw, 0.78rem);
+  letter-spacing: 0.19em;
   line-height: 1.6;
 }
 
-.portfolio-placeholder p {
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 10vw, 10rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.78;
+  white-space: nowrap;
+}
+
+.hero-title-line {
+  display: block;
+  padding: 0 0.07em 0.08em 0;
   margin: 0;
 }
 
+.hero-statement {
+  margin: clamp(1.35rem, 3.6vh, 2.5rem) 0 0;
+  color: var(--color-ivory);
+  font-size: clamp(0.95rem, 1.35vw, 1.3rem);
+  letter-spacing: 0.2em;
+  line-height: 1.45;
+}
+
+.hero-cta {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: clamp(1.3rem, 3.5vh, 2.5rem);
+  border-bottom: 1px solid var(--color-gold);
+  color: var(--color-ivory);
+  font-size: 0.7rem;
+  letter-spacing: 0.17em;
+  text-decoration: none;
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid var(--color-ivory);
+  outline-offset: 5px;
+}
+
+.hero-cta-arrow {
+  color: var(--color-gold);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.hero-image-frame {
+  position: relative;
+  z-index: 0;
+  width: min(100%, 36rem);
+  height: min(70svh, 52rem);
+  min-height: 23rem;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  overflow: hidden;
+  margin: 0 0 0 clamp(-4rem, -3vw, -1rem);
+  border-radius: 48% 48% 0 0 / 22% 22% 0 0;
+  background: var(--color-ink);
+}
+
+.hero-image-frame img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-image-note {
+  position: absolute;
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  bottom: clamp(0.75rem, 2vw, 1.5rem);
+  padding: 0.7rem 0.85rem;
+  border-left: 1px solid var(--color-gold);
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+}
+
+.hero-image-note span {
+  padding-inline: 0.2em;
+  color: var(--color-gold);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-content {
+    grid-template-columns: minmax(0, 1.05fr) minmax(15rem, 0.95fr);
+    padding-inline: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .hero-title {
+    font-size: clamp(4.4rem, 8.6vw, 6.5rem);
+  }
+
+  .hero-image-frame {
+    height: min(64svh, 44rem);
+    min-height: 21rem;
+  }
+
+  .hero-statement {
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  }
+}
+
 @media (max-width: 767px) {
-  .portfolio-shell {
-    gap: clamp(3rem, 9vh, 5rem);
+  .site-header {
+    padding: 1.25rem clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .hero-content {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100svh;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .hero-image-frame {
+    order: -1;
+    width: 100%;
+    height: clamp(17rem, 48svh, 31rem);
+    min-height: 0;
+    max-width: none;
+    flex: 0 0 auto;
+    margin: 0;
+    border-radius: 0 0 38% 0 / 0 0 8% 0;
+  }
+
+  .hero-image-note {
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 0.54rem;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.35rem clamp(1.25rem, 6vw, 1.75rem) 1.75rem;
+  }
+
+  .hero-meta {
+    margin-bottom: 0.85rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-title {
+    font-size: clamp(3.35rem, 17vw, 5.5rem);
+    line-height: 0.8;
+  }
+
+  .hero-statement {
+    margin-top: 1.15rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.17em;
+    line-height: 1.35;
+  }
+
+  .hero-cta {
+    min-height: 3rem;
+    margin-top: 1rem;
   }
 
   .menu-overlay-inner {
