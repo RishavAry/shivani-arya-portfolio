@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { Identities } from "@/components/sections/identities";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { Showreel } from "@/components/sections/showreel";
+import { Archive } from "@/components/sections/archive";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Identities />
       <SelectedWork />
       <Showreel />
+      <Archive />
     </main>
   );
 }
