@@ -29,7 +29,7 @@ export function Hero() {
           FRAMES
         </p>
 
-        <a className="hero-cta" href="#about" data-hero-cta>
+        <a className="hero-cta" href="#identities" data-hero-cta>
           <span>ENTER / EXPLORE</span>
           <span className="hero-cta-arrow" aria-hidden="true">
             ↓
