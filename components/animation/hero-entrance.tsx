@@ -19,21 +19,12 @@ export function HeroEntrance({ children }: HeroEntranceProps) {
         "(prefers-reduced-motion: reduce)",
       ).matches;
 
-      if (reducedMotion) {
-        gsap.fromTo(
-          "[data-hero-image], [data-hero-title-line], [data-hero-statement], [data-hero-meta], [data-hero-cta]",
-          { autoAlpha: 0 },
-          {
-            autoAlpha: 1,
-            duration: 0.2,
-            stagger: 0.035,
-            clearProps: "opacity,visibility",
-          },
-        );
-        return;
-      }
+      if (reducedMotion) return;
 
-      const entrance = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const entrance = gsap.timeline({
+        delay: 0.08,
+        defaults: { ease: "power2.out" },
+      });
 
       entrance
         .fromTo(
@@ -47,37 +38,43 @@ export function HeroEntrance({ children }: HeroEntranceProps) {
             autoAlpha: 1,
             clipPath: "inset(0% 0 0 0)",
             scale: 1,
-            duration: 1.05,
-            ease: "power3.inOut",
+            duration: 0.82,
+            ease: "power3.out",
           },
-        )
-        .fromTo(
-          "[data-hero-title-line]",
-          { autoAlpha: 0, yPercent: 105 },
-          {
-            autoAlpha: 1,
-            yPercent: 0,
-            duration: 0.78,
-            stagger: 0.12,
-          },
-          "-=0.26",
-        )
-        .fromTo(
-          "[data-hero-statement]",
-          { autoAlpha: 0, y: 12 },
-          { autoAlpha: 1, y: 0, duration: 0.55 },
-          "-=0.12",
         )
         .fromTo(
           "[data-hero-meta]",
+          { autoAlpha: 0, y: 8 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.34,
+          },
+          "-=0.22",
+        )
+        .fromTo(
+          "[data-hero-title-line]",
+          { autoAlpha: 0, yPercent: 112, scale: 0.985 },
+          {
+            autoAlpha: 1,
+            yPercent: 0,
+            scale: 1,
+            duration: 0.56,
+            stagger: 0.12,
+            ease: "power3.out",
+          },
+          "-=0.08",
+        )
+        .fromTo(
+          "[data-hero-statement]",
           { autoAlpha: 0, y: 10 },
-          { autoAlpha: 1, y: 0, duration: 0.48 },
+          { autoAlpha: 1, y: 0, duration: 0.4 },
           "-=0.12",
         )
         .fromTo(
           "[data-hero-cta]",
-          { autoAlpha: 0, y: 8 },
-          { autoAlpha: 1, y: 0, duration: 0.45 },
+          { autoAlpha: 0, y: 6 },
+          { autoAlpha: 1, y: 0, duration: 0.34 },
           "-=0.08",
         );
     }, section);
@@ -92,6 +89,9 @@ export function HeroEntrance({ children }: HeroEntranceProps) {
       aria-labelledby="hero-heading"
     >
       <div className="hero-content">{children}</div>
+      <span className="hero-edge-note" aria-hidden="true">
+        SCROLL TO ENTER
+      </span>
     </section>
   );
 }

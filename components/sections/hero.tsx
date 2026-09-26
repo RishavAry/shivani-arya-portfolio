@@ -13,11 +13,11 @@ export function Hero() {
         </p>
 
         <h1 id="hero-heading" className="hero-title">
-          <span className="hero-title-line" data-hero-title-line>
-            SHIVANI
+          <span className="hero-title-line">
+            <span data-hero-title-line>SHIVANI</span>
           </span>
-          <span className="hero-title-line" data-hero-title-line>
-            ARYA
+          <span className="hero-title-line">
+            <span data-hero-title-line>ARYA</span>
           </span>
         </h1>
 
